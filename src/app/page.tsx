@@ -1,12 +1,9 @@
-'use client';
-import { useTheme } from 'next-themes';
+import QueryRepository from './components/queryRepository';
 
 export default function Home() {
-  const { theme } = useTheme();
   return (
-    <div>
-      The current theme is: {theme}
-      <div>a a a </div>
+    <div className="w-screen h-screen flex justify-center">
+      <QueryRepository />
     </div>
   );
 }

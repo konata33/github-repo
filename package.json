@@ -9,6 +9,7 @@
     "lint": "lint"
   },
   "dependencies": {
+    "@nextui-org/react": "^2.2.9",
     "@react-hookz/web": "^23.1.0",
     "framer-motion": "^10.16.15",
     "next": "14.0.4",

@@ -10,10 +10,10 @@ export const metadata: Metadata = {
 
 const NoSSR = dynamic(() => import('./page'), { ssr: false });
 
-export default function RootLayout({ children }: { children: React.ReactNode }) {
+export default function RootLayout() {
   return (
     <html suppressHydrationWarning>
-      <body className="text-3xl">
+      <body>
         <Providers>
           <NoSSR />
         </Providers>
