@@ -1,18 +1,23 @@
-import type { Metadata } from 'next'
-import './globals.css'
+import type { Metadata } from 'next';
+import './globals.css';
+import Providers from './providers';
+import dynamic from 'next/dynamic';
+
 export const metadata: Metadata = {
   title: 'GitHub Contributor Finder',
-  description: 'A tool to search through GitHub repositories and identify contributing users, helping you understand the history and collaboration behind any GitHub project.',
-}
+  description: 'A tool to identify contributors in GitHub projects.'
+};
 
-export default function RootLayout({
-  children,
-}: {
-  children: React.ReactNode
-}) {
+const NoSSR = dynamic(() => import('./page'), { ssr: false });
+
+export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="en">
-      <body >{children}</body>
+    <html suppressHydrationWarning>
+      <body className="text-3xl">
+        <Providers>
+          <NoSSR />
+        </Providers>
+      </body>
     </html>
-  )
+  );
 }
