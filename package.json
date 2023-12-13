@@ -9,6 +9,7 @@
     "lint": "lint"
   },
   "dependencies": {
+    "@alicloud/imageenhan20190930": "^2.0.9",
     "@nextui-org/react": "^2.2.9",
     "@react-hookz/web": "^23.1.0",
     "framer-motion": "^10.16.15",
@@ -34,6 +35,7 @@
     "eslint-plugin-react-hooks": "^4.6.0",
     "eslint-plugin-tailwindcss": "^3.13.0",
     "postcss": "^8",
+    "postcss-import": "^15.1.0",
     "prettier": "^3.1.0",
     "prettier-plugin-tailwindcss": "^0.5.9",
     "tailwindcss": "^3.3.0",
