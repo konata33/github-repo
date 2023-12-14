@@ -1,6 +1,7 @@
 import type { Config } from 'tailwindcss';
 import { nextui } from '@nextui-org/react';
 import { PluginAPI } from 'tailwindcss/types/config';
+import { addDynamicIconSelectors } from '@iconify/tailwind';
 
 const config: Config = {
   content: [
@@ -23,7 +24,7 @@ const config: Config = {
     }
   },
   darkMode: ['class', '[data-theme="dark"]'],
-  plugins: [nextui(), addShortcutPlugin]
+  plugins: [nextui(), addShortcutPlugin, addDynamicIconSelectors()]
 };
 
 function addShortcutPlugin({ addUtilities }: PluginAPI) {
