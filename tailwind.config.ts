@@ -10,11 +10,11 @@ const config: Config = {
   ],
   theme: {
     screens: {
-      xs: { max: '320px' },
-      sm: { max: '576px' },
-      md: { max: '768px' },
-      lg: { max: '992px' },
-      xl: { max: '1200px' }
+      xs: { min: '320px' },
+      sm: { min: '576px' },
+      md: { min: '768px' },
+      lg: { min: '992px' },
+      xl: { min: '1200px' }
     },
     extend: {
       backgroundImage: {
