@@ -1,5 +1,4 @@
 import QueryRepository from './components/queryRepository';
-import backgroundImage from '../../public/bg.svg';
 
 export default function Home() {
   return (
