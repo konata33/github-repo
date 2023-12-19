@@ -4,18 +4,26 @@ import { Input } from '@nextui-org/react';
 import { useEffect, useState } from 'react';
 import { motion, useAnimation } from 'framer-motion';
 import List from './queryRepositoryList';
+import Rank from './queryRepositoryRank';
 import { queries } from '../queries';
 import { useDebounce } from '../hooks/util';
 
 export default function QueryRepository() {
   const [input, setInput] = useState('');
   const [repoData, setrepoData] = useState('');
+  const [repoRankData, setrepoRankData] = useState('');
   const [hasBeenVisible, setHasBeenVisible] = useState(false);
   const [hasBeenSearch, setHasBeenSearch] = useState(false);
   const debouncedSearch = useDebounce(input, 500);
   const controls = useAnimation();
   const handleSearch = async (e: React.ChangeEvent<HTMLInputElement>) => {
     setInput(e.target.value);
+  };
+  const handleRepoClick = async (repo: any) => {
+    setHasBeenSearch(false);
+    const responseData = await queries.repo.queryRank(repo);
+    setrepoRankData(responseData);
+    setHasBeenSearch(true);
   };
 
   useEffect(() => {
@@ -61,11 +69,17 @@ export default function QueryRepository() {
           initial={{ y: '100%', opacity: 0 }}
           animate={controls}
           className={`w-screen overflow-auto flex justify-center rounded transition-all duration-3000 ${
-            hasBeenSearch ? 'max-h-[60vh]' : 'max-h-[5vh]'
+            hasBeenSearch ? 'max-h-[60vh]' : 'max-h-[10vh]'
           }`}
         >
           {!hasBeenSearch && <span className="icon-[svg-spinners--wind-toy] text-6xl"></span>}
-          {hasBeenSearch && <List repos={repoData} />}
+          {hasBeenSearch ? (
+            repoRankData ? (
+              <Rank reposRank={repoRankData} />
+            ) : (
+              <List repos={repoData} onRepoClick={handleRepoClick} />
+            )
+          ) : null}
         </motion.div>
       )}
     </div>

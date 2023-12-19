@@ -10,5 +10,11 @@ export const repo = {
       q: inputValue
     });
     return response.data;
+  },
+  queryRank: async (repo: any) => {
+    const response = await octokit.request(
+      `GET /repos/${repo.owner.login}/${repo.name}/contributors`
+    );
+    return response.data;
   }
 };
