@@ -9,7 +9,6 @@
     "lint": "lint"
   },
   "dependencies": {
-    "@alicloud/imageenhan20190930": "^2.0.9",
     "@nextui-org/react": "^2.2.9",
     "@octokit/core": "^5.0.2",
     "@react-hookz/web": "^23.1.0",

@@ -16,5 +16,11 @@ export const repo = {
       `GET /repos/${repo.owner.login}/${repo.name}/contributors`
     );
     return response.data;
+  },
+  queryPulls: async (repo: any) => {
+    const response = await octokit.request(`GET /repos/${repo.owner.login}/${repo.name}/pulls`, {
+      state: 'all'
+    });
+    return response.data;
   }
 };

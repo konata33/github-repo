@@ -11,17 +11,20 @@ import { useDebounce } from '../hooks/util';
 export default function QueryRepository() {
   const [input, setInput] = useState('');
   const [repoData, setrepoData] = useState('');
-  const [repoRankData, setrepoRankData] = useState('');
+  const [repoRankData, setrepoRankData] = useState([]);
   const [hasBeenVisible, setHasBeenVisible] = useState(false);
   const [hasBeenSearch, setHasBeenSearch] = useState(false);
   const debouncedSearch = useDebounce(input, 500);
   const controls = useAnimation();
   const handleSearch = async (e: React.ChangeEvent<HTMLInputElement>) => {
+    setrepoRankData([]);
     setInput(e.target.value);
   };
   const handleRepoClick = async (repo: any) => {
     setHasBeenSearch(false);
     const responseData = await queries.repo.queryRank(repo);
+    const responsePulls = await queries.repo.queryPulls(repo);
+    console.log(responsePulls);
     setrepoRankData(responseData);
     setHasBeenSearch(true);
   };
@@ -49,7 +52,7 @@ export default function QueryRepository() {
     <div className="flex justify-center flex-col min-h-screen">
       <div className="flex justify-center items-center flex-col py-10">
         <div className="py-5  xs:text-2xl md:text-6xl lg:text-8xl text-slate-50">
-          Who is the top contributor in the project
+          top contributor
         </div>
         <Input
           isClearable
@@ -69,12 +72,12 @@ export default function QueryRepository() {
           initial={{ y: '100%', opacity: 0 }}
           animate={controls}
           className={`w-screen overflow-auto flex justify-center rounded transition-all duration-3000 ${
-            hasBeenSearch ? 'max-h-[60vh]' : 'max-h-[10vh]'
+            hasBeenSearch ? 'max-h-[70vh]' : 'max-h-[10vh]'
           }`}
         >
           {!hasBeenSearch && <span className="icon-[svg-spinners--wind-toy] text-6xl"></span>}
           {hasBeenSearch ? (
-            repoRankData ? (
+            repoRankData.length > 0 ? (
               <Rank reposRank={repoRankData} />
             ) : (
               <List repos={repoData} onRepoClick={handleRepoClick} />

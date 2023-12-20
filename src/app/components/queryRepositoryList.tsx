@@ -33,7 +33,7 @@ export default function QueryRepositoryList({
                 alt={repo.full_name}
                 width={100}
                 height={110}
-                objectFit="cover"
+                className="object-cover"
               />
             </div>
             <div className="mx-4 my-1 w-full">
