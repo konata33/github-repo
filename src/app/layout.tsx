@@ -4,8 +4,8 @@ import Providers from './providers';
 import dynamic from 'next/dynamic';
 
 export const metadata: Metadata = {
-  title: 'GitHub Contributor Finder',
-  description: 'A tool to identify contributors in GitHub projects.'
+  title: 'GitHub Repository Contributors List ',
+  description: 'Generate a ranking of user contributions within the repository'
 };
 
 const NoSSR = dynamic(() => import('./page'), { ssr: false });

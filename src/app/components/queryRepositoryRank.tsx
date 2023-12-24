@@ -12,23 +12,28 @@ export default function QueryRepositoryRank({ reposRank }: { reposRank: any }) {
 
   return (
     <div className="flex flex-col md:flex-row space-y-10 md:space-y-0 md:space-x-10 w-full mx-auto">
-      <div className="w-1/3 flex flex-col items-center justify-center">
-        <div className="relative">
-          <Image
-            src={topContributor.avatar_url}
-            width={280}
-            height={280}
-            className="rounded-full object-cover"
-            alt={topContributor.login}
-          />
-          <div className="absolute bottom-5 right-4 bg-white text-black rounded-full h-14 w-14 flex items-center justify-center font-bold">
-            {topContributor.contributions}
+      <div className="w-1/2 fle flex-row items-center ">
+        <div className="flex flex-row items-center w-full space-x-4">
+          <div className="w-1/2 ">
+            <div className="p-3 border-b-2 border-zinc-800">
+              <div className="text-2xl text-white">Pull Request</div>
+            </div>
+            <div className="p-3 text-white">
+              <p>这里是正文内容。</p>
+            </div>
+          </div>
+          <div className="w-1/2 ">
+            <div className="p-3 border-b-2 border-zinc-800">
+              <div className="text-2xl text-white">Commit</div>
+            </div>
+            <div className="p-3 text-white">
+              <p>这里是正文内容。</p>
+            </div>
           </div>
         </div>
-        <div className="text-2xl font-bold mt-4">{topContributor.login}</div>
       </div>
 
-      <div className="w-2/3 overflow-auto">
+      <div className="w-1/2 overflow-auto">
         {reposRank.map((item: any, index: number) => (
           <div
             key={index}

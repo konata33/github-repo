@@ -52,7 +52,7 @@ export default function QueryRepository() {
     <div className="flex justify-center flex-col min-h-screen">
       <div className="flex justify-center items-center flex-col py-10">
         <div className="py-5  xs:text-2xl md:text-6xl lg:text-8xl text-slate-50">
-          top contributor
+          GitHub Repository Contributors List
         </div>
         <Input
           isClearable
@@ -72,7 +72,7 @@ export default function QueryRepository() {
           initial={{ y: '100%', opacity: 0 }}
           animate={controls}
           className={`w-screen overflow-auto flex justify-center rounded transition-all duration-3000 ${
-            hasBeenSearch ? 'max-h-[70vh]' : 'max-h-[10vh]'
+            hasBeenSearch ? 'max-h-[65vh]' : 'max-h-[10vh]'
           }`}
         >
           {!hasBeenSearch && <span className="icon-[svg-spinners--wind-toy] text-6xl"></span>}

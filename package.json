@@ -1,5 +1,6 @@
 {
-  "name": "github-repo",
+  "name": "github-contribution-list",
+  "description": "GitHub Repository Contributors List ",
   "version": "0.1.0",
   "private": true,
   "scripts": {
