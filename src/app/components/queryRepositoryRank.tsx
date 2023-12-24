@@ -2,7 +2,7 @@ import Image from 'next/image';
 
 export default function QueryRepositoryRank({ reposRank }: { reposRank: any }) {
   // 获取排行榜第一的贡献者
-  const topContributor = reposRank[0];
+  // const topContributor = reposRank[0];
 
   // 计算总提交次数
   const totalContributions = reposRank.reduce(
